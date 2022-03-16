@@ -50,23 +50,67 @@ public static class TransformExtensions
 
 public class CubeController : MonoBehaviour
 {
-    public Vector3 _position;
-    public Quaternion _rotation;
-    public Vector3 _scale;
+    private Vector3 _position;
+    private Vector3 _rotation;
+    private Vector3 _scale;
+    private Matrix4x4 _transformationMatrix;
+
+    public Matrix4x4 TransformationMatrix
+    {
+        get { return this._transformationMatrix; }
+    }
+
+    public Vector3 Position
+    {
+        get { return this._position; }
+        set
+        {
+            this._position = value;
+            this.updateMatrix();
+        }
+    }
+
+    public Vector3 Rotation
+    {
+        get { return this._rotation; }
+        set
+        {
+            this._rotation = value;
+            this.updateMatrix();
+        }
+    }
+
+    public Vector3 Scale
+    {
+        get { return this._scale; }
+        set
+        {
+            this._scale = value;
+            this.updateMatrix();
+        }
+    }
+
+    private void updateMatrix()
+    {
+        // You are NOT allowed to use the following function, calculate the matrix yourself
+        this._transformationMatrix = Matrix4x4.TRS(
+            this.Position,
+            Quaternion.Euler(this.Rotation),
+            this.Scale
+        );
+    }
 
     private void Start()
     {
-        _position = new Vector3(0, 0, 0);
-        _rotation = Quaternion.Euler(0, 0, 0);
-        _scale = new Vector3(1, 1, 1);
+        this._position = Vector3.zero;
+        this._rotation = Vector3.zero;
+        this._scale = Vector3.one;
+        this.updateMatrix();
     }
 
     private void Update()
     {
-        // You are NOT allowed to use the following function, calculate the matrix yourself
-        var m = Matrix4x4.TRS(_position, _rotation, _scale);
-
         // assign your the transformation matrix to the object's transform
-        transform.FromMatrix(m);
+        transform.FromMatrix(this.TransformationMatrix);
     }
 }
