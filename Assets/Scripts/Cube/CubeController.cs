@@ -50,6 +50,9 @@ public static class TransformExtensions
 
 public class CubeController : MonoBehaviour
 {
+    public delegate void UpdateTransformationMatrixAction();
+    public event UpdateTransformationMatrixAction OnTransformationMatrixUpdated;
+
     private Vector3 _position;
     private Vector3 _rotation;
     private Vector3 _scale;
@@ -98,6 +101,8 @@ public class CubeController : MonoBehaviour
             Quaternion.Euler(this.Rotation),
             this.Scale
         );
+        if (OnTransformationMatrixUpdated != null)
+            OnTransformationMatrixUpdated();
     }
 
     private void Start()

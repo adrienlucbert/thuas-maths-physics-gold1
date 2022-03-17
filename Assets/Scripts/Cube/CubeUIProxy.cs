@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.UI;
 using UnityEngine;
 
 public class CubeUIProxy : MonoBehaviour
 {
     [SerializeField] private CubeController _controller;
+    [SerializeField] private GameObject _matrixUI;
 
     public void OnTransformXChange(float value)
     {
@@ -46,5 +48,30 @@ public class CubeUIProxy : MonoBehaviour
         var rot = this._controller.Rotation;
         rot.z = value;
         this._controller.Rotation = rot;
+    }
+
+    private Text GetMatrixItemText(int rowIdx, int colIdx)
+    {
+        var rowObject = this._matrixUI.transform.Find($"Row{rowIdx}").gameObject;
+        var itemObject = rowObject.transform.Find($"Col{colIdx}").gameObject;
+        return itemObject.GetComponent<UnityEngine.UI.Text>();
+    }
+
+    public void UpdateTransformationMatrixUI()
+    {
+        for (int rowIdx = 0; rowIdx < 4; ++rowIdx)
+        {
+            var row = this._controller.TransformationMatrix.GetRow(rowIdx);
+            for (int colIdx = 0; colIdx < 4; ++colIdx)
+            {
+                var itemText = this.GetMatrixItemText(rowIdx, colIdx);
+                itemText.text = row[colIdx].ToString("F2");
+            }
+        }
+    }
+
+    public void Start()
+    {
+        this._controller.OnTransformationMatrixUpdated += this.UpdateTransformationMatrixUI;
     }
 }
