@@ -50,11 +50,11 @@ public class CubeUIProxy : MonoBehaviour
         this._controller.Rotation = rot;
     }
 
-    private Text GetMatrixItemText(int rowIdx, int colIdx)
+    private GameObject GetMatrixItem(int rowIdx, int colIdx)
     {
         var rowObject = this._matrixUI.transform.Find($"Row{rowIdx}").gameObject;
         var itemObject = rowObject.transform.Find($"Col{colIdx}").gameObject;
-        return itemObject.GetComponent<UnityEngine.UI.Text>();
+        return itemObject;
     }
 
     public void UpdateTransformationMatrixUI()
@@ -64,7 +64,10 @@ public class CubeUIProxy : MonoBehaviour
             var row = this._controller.TransformationMatrix.GetRow(rowIdx);
             for (int colIdx = 0; colIdx < 4; ++colIdx)
             {
-                var itemText = this.GetMatrixItemText(rowIdx, colIdx);
+                var itemObject = this.GetMatrixItem(rowIdx, colIdx);
+                var itemPlaceholder = itemObject.transform.Find("Placeholder").GetComponent<UnityEngine.UI.Text>();
+                var itemText = itemObject.GetComponent<UnityEngine.UI.InputField>();
+                itemPlaceholder.text = row[colIdx].ToString("F2");
                 itemText.text = row[colIdx].ToString("F2");
             }
         }
