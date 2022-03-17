@@ -130,6 +130,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994263290}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col0
@@ -164,7 +168,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -527,6 +531,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162237689}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col1
@@ -561,7 +569,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1002,6 +1010,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870604251}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col3
@@ -1036,7 +1048,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1280,6 +1292,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c497ef31a8f2e11488be3ea35f8fbec1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  OnTransformationMatrixUpdated:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &532368533
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1293,6 +1308,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _controller: {fileID: 532368532}
+  _resetUI: {fileID: 1780773035}
+  _transformationUI: {fileID: 1921044391}
+  _rotationUI: {fileID: 367392684}
   _matrixUI: {fileID: 1892114927}
 --- !u!1 &593415137
 GameObject:
@@ -1305,7 +1323,7 @@ GameObject:
   - component: {fileID: 593415138}
   - component: {fileID: 593415139}
   m_Layer: 0
-  m_Name: Slider X
+  m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1384,19 +1402,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnRotationXChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &612529224 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
@@ -1586,6 +1592,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870604251}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col2
@@ -1620,7 +1630,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -1842,6 +1852,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162237689}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col0
@@ -1876,7 +1890,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2014,6 +2028,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 230812694}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col3
@@ -2048,7 +2066,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2111,6 +2129,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994263290}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col2
@@ -2145,7 +2167,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2399,6 +2421,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 230812694}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: ' 1.00'
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176667042848, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Text
       value: 0.00
@@ -2441,7 +2467,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2600,7 +2626,7 @@ GameObject:
   - component: {fileID: 987108602}
   - component: {fileID: 987108603}
   m_Layer: 0
-  m_Name: Slider Y
+  m_Name: Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2679,19 +2705,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnRotationYChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &994263289
 GameObject:
   m_ObjectHideFlags: 0
@@ -2779,6 +2793,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994263290}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col3
@@ -2813,7 +2831,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -2988,6 +3006,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162237689}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: ' 1.00'
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176667042848, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Text
       value: 0.00
@@ -3030,7 +3052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3097,6 +3119,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 230812694}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col0
@@ -3131,7 +3157,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -3354,7 +3380,7 @@ GameObject:
   - component: {fileID: 1356927791}
   - component: {fileID: 1356927792}
   m_Layer: 0
-  m_Name: Slider X
+  m_Name: X
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3433,19 +3459,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnTransformXChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1357721944
 GameObject:
   m_ObjectHideFlags: 0
@@ -3912,7 +3926,7 @@ GameObject:
   - component: {fileID: 1522622928}
   - component: {fileID: 1522622929}
   m_Layer: 0
-  m_Name: Slider Z
+  m_Name: Z
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3991,19 +4005,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnRotationZChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!224 &1525970934 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
@@ -4095,7 +4097,7 @@ GameObject:
   - component: {fileID: 1533857801}
   - component: {fileID: 1533857802}
   m_Layer: 0
-  m_Name: Slider Y
+  m_Name: Y
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4174,19 +4176,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnTransformYChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1 &1574596052
 GameObject:
   m_ObjectHideFlags: 0
@@ -4348,6 +4338,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 994263290}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: ' 1.00'
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176667042848, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Text
       value: 0.00
@@ -4390,7 +4384,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -4484,7 +4478,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 80, y: 30}
+  m_AnchoredPosition: {x: 70, y: 30}
   m_SizeDelta: {x: 160, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1692915372
@@ -4810,79 +4804,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1780773038}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1356927792}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1533857802}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1846683557}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 593415139}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 987108603}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1522622929}
-        m_TargetAssemblyTypeName: UnityEngine.UI.Slider, UnityEngine.UI
-        m_MethodName: set_value
-        m_Mode: 4
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1780773038
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5012,7 +4934,7 @@ GameObject:
   - component: {fileID: 1846683556}
   - component: {fileID: 1846683557}
   m_Layer: 0
-  m_Name: Slider Z
+  m_Name: Z
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5091,19 +5013,7 @@ MonoBehaviour:
   m_Value: 0
   m_OnValueChanged:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 532368533}
-        m_TargetAssemblyTypeName: CubeUIProxy, Assembly-CSharp
-        m_MethodName: OnTransformZChange
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!1001 &1850806306
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5111,6 +5021,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870604251}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col1
@@ -5145,7 +5059,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5198,6 +5112,10 @@ PrefabInstance:
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8761902176704791879, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
@@ -5401,6 +5319,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 230812694}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col1
@@ -5435,7 +5357,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5573,6 +5495,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 162237689}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: 0.00
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791873, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Name
       value: Col2
@@ -5607,7 +5533,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y
@@ -5828,6 +5754,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 1870604251}
     m_Modifications:
+    - target: {fileID: 8761902176559556537, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
+      propertyPath: m_Text
+      value: ' 1.00'
+      objectReference: {fileID: 0}
     - target: {fileID: 8761902176667042848, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_Text
       value: 0.00
@@ -5870,7 +5800,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 50
+      value: 60
       objectReference: {fileID: 0}
     - target: {fileID: 8761902176704791878, guid: 0bd65d461b60eb344a899004b14a91b1, type: 3}
       propertyPath: m_SizeDelta.y

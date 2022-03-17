@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Events;
 using UnityEngine;
 
 public static class MatrixExtensions
@@ -50,8 +51,7 @@ public static class TransformExtensions
 
 public class CubeController : MonoBehaviour
 {
-    public delegate void UpdateTransformationMatrixAction();
-    public event UpdateTransformationMatrixAction OnTransformationMatrixUpdated;
+    public UnityEvent OnTransformationMatrixUpdated;
 
     private Vector3 _position;
     private Vector3 _rotation;
@@ -69,7 +69,7 @@ public class CubeController : MonoBehaviour
         set
         {
             this._position = value;
-            this.updateMatrix();
+            this.UpdateMatrix();
         }
     }
 
@@ -79,7 +79,7 @@ public class CubeController : MonoBehaviour
         set
         {
             this._rotation = value;
-            this.updateMatrix();
+            this.UpdateMatrix();
         }
     }
 
@@ -89,11 +89,11 @@ public class CubeController : MonoBehaviour
         set
         {
             this._scale = value;
-            this.updateMatrix();
+            this.UpdateMatrix();
         }
     }
 
-    private void updateMatrix()
+    private void UpdateMatrix()
     {
         // You are NOT allowed to use the following function, calculate the matrix yourself
         this._transformationMatrix = Matrix4x4.TRS(
@@ -101,16 +101,28 @@ public class CubeController : MonoBehaviour
             Quaternion.Euler(this.Rotation),
             this.Scale
         );
-        if (OnTransformationMatrixUpdated != null)
-            OnTransformationMatrixUpdated();
+        this.OnTransformationMatrixUpdated.Invoke();
     }
 
-    private void Start()
+    public void ChangeMatrixValue(int rowIdx, int colIdx, float value)
+    {
+        this._transformationMatrix[rowIdx, colIdx] = value;
+        this._scale = this._transformationMatrix.ExtractScale();
+        this._rotation = this._transformationMatrix.ExtractRotation().eulerAngles;
+        this._position = this._transformationMatrix.ExtractPosition();
+    }
+
+    public void Reset()
     {
         this._position = Vector3.zero;
         this._rotation = Vector3.zero;
         this._scale = Vector3.one;
-        this.updateMatrix();
+        this.UpdateMatrix();
+    }
+
+    private void Start()
+    {
+        this.Reset();
     }
 
     private void Update()
