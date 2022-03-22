@@ -9,6 +9,7 @@ public class CubeViewModel : ViewModel
 {
     [SerializeField] private Vector3ViewModel positionViewModel;
     [SerializeField] private Vector3ViewModel rotationViewModel;
+    [SerializeField] private Vector3ViewModel scaleViewModel;
     [SerializeField] private Matrix4x4ViewModel matrixViewModel;
     private bool watchMatrix = false;
     private bool watchSliders = false;
@@ -25,8 +26,8 @@ public class CubeViewModel : ViewModel
     }
     public Vector3 Scale
     {
-        get;
-        private set;
+        get { return this.scaleViewModel.Value; }
+        private set { this.scaleViewModel.Value = value; }
     }
     public Matrix4x4 Matrix
     {
@@ -91,6 +92,7 @@ public class CubeViewModel : ViewModel
     {
         this.positionViewModel.PropertyChanged += this.OnSliderChanged;
         this.rotationViewModel.PropertyChanged += this.OnSliderChanged;
+        this.scaleViewModel.PropertyChanged += this.OnSliderChanged;
         this.matrixViewModel.PropertyChanged += this.OnMatrixChanged;
     }
 }
