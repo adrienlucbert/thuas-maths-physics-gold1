@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public static class MatrixOperations
@@ -16,31 +14,34 @@ public static class MatrixOperations
         m = MatrixOperations.Rotate(m, rotation);
         m = MatrixOperations.Translate(m, position);
         m = MatrixOperations.Scale(m, scale);
-        // You are NOT allowed to use the following function, calculate the matrix yourself
-        //m = Matrix4x4.TRS(position, Quaternion.Euler(rotation), scale);
         return m;
     }
 
-    private static Matrix4x4 Translate(Matrix4x4 matrix, Vector3 position)
+    public static Matrix4x4 Translate(Matrix4x4 matrix, Vector3 position)
     {
         matrix.m03 += position.x;
         matrix.m13 += position.y;
         matrix.m23 += position.z;
         return matrix;
     }
-    private static Matrix4x4 Product(Matrix4x4 a, Matrix4x4 b)
+    public static Matrix4x4 Rotate(Matrix4x4 matrix, Vector3 rotation)
     {
-        Matrix4x4 m = Matrix4x4.zero;
-
-        for (int i = 0; i < 4; ++i)
-            for (int j = 0; j < 4; ++j)
-                for (int k = 0; k < 4; ++k)
-                    m[i, j] += a[i, k] * b[k, j];
-        return m;
+        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.right, rotation.x);
+        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.up, rotation.y);
+        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.forward, rotation.z);
+        return matrix;
     }
-    private static Matrix4x4 RotateAroundAxis(Matrix4x4 matrix, Vector3 axis, float angle)
+    public static Matrix4x4 Scale(Matrix4x4 matrix, Vector3 scale)
     {
-        axis = axis.normalized; // TODO: replace with own function
+        Matrix4x4 m = Matrix4x4.identity;
+        m.m00 = scale.x;
+        m.m11 = scale.y;
+        m.m22 = scale.z;
+        return MatrixOperations.Product(matrix, m);
+    }
+    public static Matrix4x4 RotateAroundAxis(Matrix4x4 matrix, Vector3 axis, float angle)
+    {
+        axis = VectorOperations.Normalized(axis);
         angle = angle * Mathf.PI / 180f; // convert degree angle to radians
         Matrix4x4 m = Matrix4x4.zero;
         float c = Mathf.Cos(angle);
@@ -57,15 +58,14 @@ public static class MatrixOperations
         m.m22 = t * axis.z * axis.z + c;
         return MatrixOperations.Product(matrix, m);
     }
-    private static Matrix4x4 Rotate(Matrix4x4 matrix, Vector3 rotation)
+    public static Matrix4x4 Product(Matrix4x4 a, Matrix4x4 b)
     {
-        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.right, rotation.x);
-        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.up, rotation.y);
-        matrix = MatrixOperations.RotateAroundAxis(matrix, Vector3.forward, rotation.z);
-        return matrix;
-    }
-    private static Matrix4x4 Scale(Matrix4x4 matrix, Vector3 scale)
-    {
-        return matrix;
+        Matrix4x4 m = Matrix4x4.zero;
+
+        for (int i = 0; i < 4; ++i)
+            for (int j = 0; j < 4; ++j)
+                for (int k = 0; k < 4; ++k)
+                    m[i, j] += a[i, k] * b[k, j];
+        return m;
     }
 }
