@@ -1,8 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine.Events;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class CubeController : MonoBehaviour
 {
@@ -11,10 +7,12 @@ public class CubeController : MonoBehaviour
     private void Start()
     {
         this.viewModel.Reset();
+        this.viewModel.IsVisible = true;
     }
 
     private void Update()
     {
+        this.gameObject.GetComponent<Renderer>().enabled = this.viewModel.IsVisible;
         // assign your the transformation matrix to the object's transform
         this.transform.FromMatrix(this.viewModel.Matrix);
     }

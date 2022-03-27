@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using System.ComponentModel;
 using UnityEngine;
 using UnityWeld.Binding;
@@ -13,6 +11,7 @@ public class CubeViewModel : ViewModel
     [SerializeField] private Matrix4x4ViewModel matrixViewModel;
     private bool watchMatrix = false;
     private bool watchSliders = false;
+    private bool isVisible = false;
 
     public Vector3 Position
     {
@@ -44,6 +43,17 @@ public class CubeViewModel : ViewModel
     { this.watchMatrix = true; }
     private void UnwatchMatrix()
     { this.watchMatrix = false; }
+
+    [Binding]
+    public bool IsVisible
+    {
+        get { return this.isVisible; }
+        set
+        {
+            this.isVisible = value;
+            this.OnPropertyChanged("IsVisible");
+        }
+    }
 
     [Binding]
     public void Reset()
