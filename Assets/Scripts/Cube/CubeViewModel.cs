@@ -71,7 +71,7 @@ public class CubeViewModel : ViewModel
     private void UpdateMatrix()
     {
         this.UnwatchMatrix();
-        this.Matrix = MatrixOperations.TRS(this.Position, this.Rotation, this.Scale);
+        this.Matrix = GDS.Maths.Matrix4x4.TRS(this.Position, this.Rotation, this.Scale).ToUnity();
         this.WatchMatrix();
     }
 
