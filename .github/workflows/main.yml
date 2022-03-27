@@ -124,4 +124,3 @@ jobs:
         with:
           release-name: ${{ needs.create-release-draft.outputs.version }}
           token: ${{ github.token }}
-ath: build
