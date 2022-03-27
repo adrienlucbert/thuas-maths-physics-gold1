@@ -191,8 +191,13 @@ namespace GDS.Maths
                 for (int i = 0; i < this.rows; ++i)
                 {
                     for (int j = 0; j < this.columns; ++j)
-                        s += this[i, j].ToString("0.00") + "\t";
-                    s += '\n';
+                    {
+                        s += this[i, j].ToString("0.00");
+                        if (j != this.columns - 1)
+                            s += '\t';
+                    }
+                    if (i != this.rows - 1)
+                        s += '\n';
                 }
                 return s;
             }
@@ -227,10 +232,10 @@ namespace GDS.Maths
           where T : IMatrixSize, new()
           where M : MatrixBase<T, M>, new()
         {
-            private static T size = new T();
+            private static T _size = new T();
 
             public MatrixBase()
-              : base(MatrixBase<T, M>.size.rows, MatrixBase<T, M>.size.columns)
+              : base(MatrixBase<T, M>._size.rows, MatrixBase<T, M>._size.columns)
             {
             }
 
@@ -240,6 +245,8 @@ namespace GDS.Maths
             /// <param name="rows">Variable number of rows to create the matrix from</param>
             public static new M FromRows(params float[][] rows)
             {
+                UnityEngine.Debug.Assert(rows.Length == MatrixBase<T, M>._size.rows && rows[0].Length == MatrixBase<T, M>._size.columns,
+                    $"Expected {MatrixBase<T, M>._size.rows} rows and {MatrixBase<T, M>._size.columns} columns, got {rows.Length} rows and {rows[0].Length} columns.");
                 return Matrix.FromRows(rows).As<M>();
             }
 
@@ -249,6 +256,8 @@ namespace GDS.Maths
             /// <param name="rows">Variable number of columns to create the matrix from</param>
             public static new M FromColumns(params float[][] columns)
             {
+                UnityEngine.Debug.Assert(columns[0].Length == MatrixBase<T, M>._size.rows && columns.Length == MatrixBase<T, M>._size.columns,
+                    $"Expected {MatrixBase<T, M>._size.rows} rows and {MatrixBase<T, M>._size.columns} columns, got {columns[0].Length} rows and {columns.Length} columns.");
                 return Matrix.FromColumns(columns).As<M>();
             }
 
@@ -259,7 +268,7 @@ namespace GDS.Maths
             /// <param name="columns">Number of columns</param>
             public static new M zero
             {
-                get { return detail.Matrix.zero(MatrixBase<T, M>.size.rows, MatrixBase<T, M>.size.columns).As<M>(); }
+                get { return detail.Matrix.zero(MatrixBase<T, M>._size.rows, MatrixBase<T, M>._size.columns).As<M>(); }
             }
 
             /// <summary>
@@ -269,7 +278,7 @@ namespace GDS.Maths
             /// <param name="columns">Number of columns</param>
             public static new M one
             {
-                get { return detail.Matrix.one(MatrixBase<T, M>.size.rows, MatrixBase<T, M>.size.columns).As<M>(); }
+                get { return detail.Matrix.one(MatrixBase<T, M>._size.rows, MatrixBase<T, M>._size.columns).As<M>(); }
             }
 
             /// <summary>
@@ -280,9 +289,9 @@ namespace GDS.Maths
             {
                 get
                 {
-                    UnityEngine.Debug.Assert(MatrixBase<T, M>.size.rows == MatrixBase<T, M>.size.columns,
+                    UnityEngine.Debug.Assert(MatrixBase<T, M>._size.rows == MatrixBase<T, M>._size.columns,
                         "An identity matrix can only be square");
-                    return detail.Matrix.identity(MatrixBase<T, M>.size.rows).As<M>();
+                    return detail.Matrix.identity(MatrixBase<T, M>._size.rows).As<M>();
                 }
             }
 
@@ -402,7 +411,7 @@ namespace GDS.Maths
 
         private static Matrix4x4 RotateAroundAxis(UnityEngine.Vector3 axis, float angle)
         {
-            axis = VectorOperations.Normalized(axis);
+            axis = (UnityEngine.Vector3)((GDS.Maths.Vector3)axis).normalized;
             angle = angle * UnityEngine.Mathf.PI / 180f; // convert degree angle to radians
             float c = UnityEngine.Mathf.Cos(angle);
             float s = UnityEngine.Mathf.Sin(angle);

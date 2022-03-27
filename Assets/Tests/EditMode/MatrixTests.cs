@@ -50,6 +50,8 @@ public class MatrixTests
         m[0, 0] = 1; m[0, 1] = 2;
         m[1, 0] = 3; m[1, 1] = 4;
         var m_cpy = m.Copy();
+        Assert.AreEqual(2, m_cpy.rows);
+        Assert.AreEqual(2, m_cpy.columns);
         Assert.AreEqual(1, m_cpy[0, 0]);
         Assert.AreEqual(2, m_cpy[0, 1]);
         Assert.AreEqual(3, m_cpy[1, 0]);
